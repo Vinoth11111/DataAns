@@ -1,0 +1,244 @@
+2025-11-18 12:57:22,980 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 12:57:30,831 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 12:57:30,944 - INFO - Loading Book Data from path: documents/books
+2025-11-18 12:57:32,608 - INFO - Loading Book Data from path: documents/research_paper
+2025-11-18 12:58:13,046 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 12:58:21,879 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 12:58:21,988 - INFO - Loading Book Data from path: documents/books
+2025-11-18 12:58:23,682 - INFO - Loading Book Data from path: documents/research paper
+2025-11-18 12:58:26,015 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 12:58:26,740 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 12:58:27,274 - INFO - Chunking Book Data...
+2025-11-18 12:58:27,275 - ERROR - Error chunking book data: TextSplitter.__init__() got an unexpected keyword argument 'chunck_size'. Did you mean 'chunk_size'?
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Desktop/domain_rag_project/ingest.py", line 98, in book_research_chunking
+    text_splitter = RecursiveCharacterTextSplitter(chunck_size= 500,chuck_overlap=100)
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_text_splitters/character.py", line 96, in __init__
+    super().__init__(keep_separator=keep_separator, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: TextSplitter.__init__() got an unexpected keyword argument 'chunck_size'. Did you mean 'chunk_size'?
+2025-11-18 12:59:18,462 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 12:59:26,403 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 12:59:26,514 - INFO - Loading Book Data from path: documents/books
+2025-11-18 12:59:28,240 - INFO - Loading Book Data from path: documents/research paper
+2025-11-18 12:59:30,652 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 12:59:31,375 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 12:59:31,912 - INFO - Chunking Book Data...
+2025-11-18 12:59:31,913 - ERROR - Error chunking book data: TextSplitter.__init__() got an unexpected keyword argument 'chuck_overlap'. Did you mean 'chunk_overlap'?
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Desktop/domain_rag_project/ingest.py", line 98, in book_research_chunking
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size= 500,chuck_overlap=100)
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_text_splitters/character.py", line 96, in __init__
+    super().__init__(keep_separator=keep_separator, **kwargs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: TextSplitter.__init__() got an unexpected keyword argument 'chuck_overlap'. Did you mean 'chunk_overlap'?
+2025-11-18 13:00:44,891 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 13:00:53,346 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 13:00:53,455 - INFO - Loading Book Data from path: documents/books
+2025-11-18 13:00:55,134 - INFO - Loading Book Data from path: documents/research paper
+2025-11-18 13:00:57,488 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 13:00:58,214 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 13:00:58,631 - INFO - Chunking Book Data...
+2025-11-18 13:00:58,723 - INFO - Chunking Book Data...
+2025-11-18 13:00:58,807 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-18 13:00:58,843 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-18 13:00:58,847 - INFO - Embedding book Data with 4684 chunks
+2025-11-18 13:00:58,848 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 13:01:10,114 - ERROR - Error embedding book data: 'Document' object has no attribute 'replace'
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Desktop/domain_rag_project/ingest.py", line 134, in data_embedding
+    return embedding_model.embed_documents(tqdm(chunked_book_data))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_huggingface/embeddings/huggingface.py", line 155, in embed_documents
+    return self._embed(texts, self.encode_kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_huggingface/embeddings/huggingface.py", line 124, in _embed
+    texts = [x.replace("\n", " ") for x in texts]
+             ^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Document' object has no attribute 'replace'
+2025-11-18 13:21:07,494 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 13:21:16,658 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 13:21:16,764 - INFO - Loading Book Data from path: documents/books
+2025-11-18 13:22:35,071 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 13:22:43,669 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 13:22:43,779 - INFO - Loading Book Data from path: documents/books
+2025-11-18 13:22:45,479 - INFO - Loading Book Data from path: documents/research paper
+2025-11-18 13:22:47,869 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 13:22:48,592 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 14:53:58,895 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 14:54:07,995 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 14:54:08,111 - INFO - Loading Book Data from path: documents/books
+2025-11-18 14:54:09,694 - INFO - Loading Book Data from path: documents/research paper
+2025-11-18 14:54:12,096 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 14:54:12,821 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 14:55:05,233 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 14:55:14,422 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 14:55:14,518 - INFO - Loading Book Data from path: documents/books
+2025-11-18 14:55:36,910 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 14:55:46,336 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 14:55:46,434 - INFO - Loading Book Data from path: documents/books
+2025-11-18 14:55:47,978 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-18 14:55:52,128 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-18 14:55:52,128 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 14:55:52,128 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-18 14:55:54,301 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 14:55:58,659 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:55:58,659 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:55:58,659 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:55:58,659 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:55:58,659 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:56:00,094 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 14:56:00,821 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 14:58:38,527 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 14:58:48,509 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 14:58:48,607 - INFO - Loading Book Data from path: documents/books
+2025-11-18 14:58:50,304 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-18 14:58:54,467 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-18 14:58:54,467 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 14:58:54,467 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-18 14:58:56,556 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 14:59:01,039 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:59:01,040 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:59:01,040 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:59:01,040 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:59:01,040 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 14:59:02,387 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 14:59:03,116 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 15:00:01,260 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 15:00:09,983 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 15:00:10,081 - INFO - Loading Book Data from path: documents/books
+2025-11-18 15:00:11,759 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-18 15:00:15,904 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-18 15:00:15,904 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 15:00:15,904 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-18 15:00:17,962 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 15:00:22,320 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:00:22,320 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:00:22,320 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:00:22,320 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:00:22,320 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:00:23,638 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 15:00:24,410 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 15:00:25,024 - INFO - Chunking Book Data...
+2025-11-18 15:00:25,108 - INFO - Chunking Book Data...
+2025-11-18 15:00:25,177 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-18 15:00:25,213 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-18 15:01:07,465 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 15:01:16,335 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 15:01:16,441 - INFO - Loading Book Data from path: documents/books
+2025-11-18 15:01:18,184 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-18 15:01:22,386 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-18 15:01:22,386 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 15:01:22,386 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-18 15:01:24,554 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 15:01:28,915 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:01:28,915 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:01:28,915 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:01:28,915 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:01:28,915 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:01:30,381 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 15:01:31,162 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 15:01:31,696 - INFO - Chunking Book Data...
+2025-11-18 15:01:31,784 - INFO - Chunking Book Data...
+2025-11-18 15:01:31,860 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-18 15:01:31,896 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-18 15:01:31,899 - INFO - Embedding book Data with 4684 chunks
+2025-11-18 15:01:31,900 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 15:01:40,018 - ERROR - Error embedding book data: 'Document' object has no attribute 'replace'
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Desktop/domain_rag_project/ingest.py", line 137, in data_embedding
+    return embedding_model.embed_documents(tqdm(chunked_book_data))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_huggingface/embeddings/huggingface.py", line 155, in embed_documents
+    return self._embed(texts, self.encode_kwargs)
+           ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_huggingface/embeddings/huggingface.py", line 124, in _embed
+    texts = [x.replace("\n", " ") for x in texts]
+             ^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Document' object has no attribute 'replace'
+2025-11-18 15:03:32,571 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 15:03:40,936 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 15:03:41,038 - INFO - Loading Book Data from path: documents/books
+2025-11-18 15:03:42,721 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-18 15:03:46,935 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-18 15:03:46,935 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 15:03:46,935 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-18 15:03:49,094 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 15:03:53,426 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:03:53,426 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:03:53,426 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:03:53,426 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:03:53,426 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:03:54,848 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 15:03:55,568 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 15:03:56,206 - INFO - Chunking Book Data...
+2025-11-18 15:03:56,289 - INFO - Chunking Book Data...
+2025-11-18 15:03:56,363 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-18 15:03:56,397 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-18 15:03:56,401 - INFO - Embedding book Data with 4684 chunks
+2025-11-18 15:03:56,402 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 15:04:05,347 - ERROR - Error embedding book data: 'list' object has no attribute 'page_content'
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Desktop/domain_rag_project/ingest.py", line 137, in data_embedding
+    return embedding_model.embed_documents(tqdm(chunked_book_data.page_content))
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'page_content'
+2025-11-18 15:34:09,087 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-18 15:34:19,254 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-18 15:34:19,353 - INFO - Loading Book Data from path: documents/books
+2025-11-18 15:34:20,869 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-18 15:34:24,897 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-18 15:34:24,897 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-18 15:34:24,898 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-18 15:34:27,196 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-18 15:34:31,719 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:34:31,719 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:34:31,719 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:34:31,720 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:34:31,720 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-18 15:34:33,179 - INFO - Loading Book Data from path: documents/interview
+2025-11-18 15:34:33,905 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-18 15:34:34,502 - INFO - Chunking Book Data...
+2025-11-18 15:34:34,591 - INFO - Chunking Book Data...
+2025-11-18 15:34:34,666 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-18 15:34:34,702 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-18 15:34:34,706 - INFO - Adding Data to the ChromaDB instance...
+2025-11-18 15:35:13,082 - INFO - Adding Data to the ChromaDB instance...
+2025-11-18 15:35:51,604 - INFO - Adding Data to the ChromaDB instance...
+2025-11-18 15:36:02,336 - INFO - Adding Data to the ChromaDB instance...
+2025-11-19 18:17:47,931 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-19 18:18:01,473 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-19 18:18:01,584 - INFO - Loading Book Data from path: documents/books
+2025-11-19 18:18:03,287 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-19 18:18:07,424 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-19 18:18:07,425 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-19 18:18:07,425 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-19 18:18:09,486 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-19 18:18:13,882 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-19 18:18:13,882 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-19 18:18:13,882 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-19 18:18:13,882 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-19 18:18:13,882 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-19 18:18:15,203 - INFO - Loading Book Data from path: documents/interview
+2025-11-19 18:18:15,976 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-19 18:18:16,441 - INFO - Chunking Book Data...
+2025-11-19 18:18:16,524 - INFO - Chunking Book Data...
+2025-11-19 18:18:16,713 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-19 18:18:16,747 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-19 18:18:16,751 - INFO - Adding Data to the ChromaDB instance...
+2025-11-19 18:18:54,891 - INFO - Adding Data to the ChromaDB instance...
+2025-11-19 18:19:33,819 - INFO - Adding Data to the ChromaDB instance...
+2025-11-19 18:19:44,408 - INFO - Adding Data to the ChromaDB instance...
+2025-11-21 17:40:21,163 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-21 17:40:28,051 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-21 17:40:28,185 - INFO - Loading Other Data from path: evaluate_data.csv of type:
+2025-11-21 17:47:35,114 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-21 17:47:43,727 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-21 17:47:43,819 - INFO - Loading Other Data from path: evaluate_data.csv of type:
+2025-11-21 17:47:43,819 - INFO - Csv Data loaded successfully.
+2025-11-21 17:47:43,820 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-11-21 17:47:43,830 - INFO - Adding Data to the ChromaDB instance...
