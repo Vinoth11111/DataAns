@@ -51,9 +51,9 @@ def exact_match(prediction, actual):
     def each_f1(prediction,actual):
         if prediction == actual:
             exact_match.append(1)
-        for sentence in prediction:
-            pred_char = handling_sentence(sentence)
-            actual_char = handling_sentence(actual)
+        for i in range(len(prediction)):
+            pred_char = handling_sentence(prediction[i])
+            actual_char = handling_sentence(actual[i])
             counts = 0
             for char in pred_char:
                 if char in actual_char:
@@ -164,3 +164,9 @@ df = pd.read_csv('evaluate_data.csv')
 questions = df['question'].tolist()
 truth = df['answer'].tolist()
 answers = retreival_qa_chain(questions)
+
+results = retreival_qa_chain(questions)
+halucination_metrics = halucination_evaluation(results)
+sementic_precisions,sementic_recall,sementic_f1_scores = sementic_similarity(questions)
+exact_matches, f1_scores,avg_f1,avg_exactmatch = exact_match(prediction=[ pred for pred in answers['generated_answer']], actual=truth)
+latencys = halucination_metrics['latency']
