@@ -1,0 +1,42 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+*.egg
+documents/*
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Unit test / coverage reports
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# macOS
+.DS_Store
+
+# VS Code (keep local settings untracked)
+.vscode/
+.idea/
+.env
+.env.*
