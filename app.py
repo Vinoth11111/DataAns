@@ -99,7 +99,6 @@ history_retriver_chain = create_history_aware_retriever(llm,retriever_data,histr
 
 retrieval_chain =create_retrieval_chain(history_retriver_chain,document_chain)
 
-print(retrieval_chain.get_graph().print_ascii())
 
 if user_input := st.chat_input('Type your question here!'):
     logger.info(f'User Input: {user_input}')
