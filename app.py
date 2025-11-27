@@ -22,7 +22,7 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 
 
 
-vectorDB = Chroma(persist_directory='chromadb', embedding_function=model)
+vectorDB = Chroma(persist_directory='/temp/chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 
 
 
