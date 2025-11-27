@@ -31,10 +31,17 @@ COPY --chown=user:user . .
 # create a makeout path for seeing the files in chromadb
 # below line is added to provide access to non root user in docker container.
 # mkdir makes make directory -p means make PARENT directories as needed.
-RUN mkdir -p /app/chromadb
+#RUN mkdir -p /app/chromadb
 # provide access to the non root user in docker container.
-RUN chown -R user:user chromadb
 
+USER root
+
+RUN chown -R user:user /app/chromadb
+
+# changemode 777 - read write execute for all users
+RUN chmod -R 777 /app/chromadb
+
+USER user
 # EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
 EXPOSE 7860
 #EXPOSE 8501
