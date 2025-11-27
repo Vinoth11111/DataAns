@@ -27,5 +27,6 @@ COPY --chown=user:user . .
 
 # EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
 EXPOSE 7860
+#EXPOSE 8501
 
 CMD ["streamlit","run","app.py","--server.port=7860","--server.address=0.0.0.0"]
