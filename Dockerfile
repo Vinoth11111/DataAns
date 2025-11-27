@@ -28,7 +28,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY --chown=user:user . . 
 #COPY . .
-
+# create a makeout path for seeing the files in chromadb
+# below line is added to provide access to non root user in docker container.
+# mkdir makes make directory -p means make PARENT directories as needed.
+RUN mkdir -p /app/chromadb
+# provide access to the non root user in docker container.
 RUN chown -R user:user chromadb
 
 # EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
