@@ -10,7 +10,9 @@ USER user
 
 # create vertual environment
 ENV HOME=/home/user \
-    PATH=/home/user/local/bin:$PATH
+    PATH=/home/user/.local/bin:$PATH \
+    PYTHONUNBUFFERED=1 
+# PYTHONUNBUFFERED=1 IS USED FOR REAL TIME LOGGING. BY DEFAULT THE LOGS WE SEND FLUSH WAY ALL LOGS STORE AND SEDN AT A TIME(BUFFRED). THIS WILL MAKE SURE ALL LOGS ARE SENT IN REAL TIME.
 #COPY requirements.txt .
 
 COPY --chown=user:user requirements.txt .
