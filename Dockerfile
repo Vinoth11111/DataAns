@@ -15,6 +15,8 @@ ENV HOME=/home/user \
 # PYTHONUNBUFFERED=1 IS USED FOR REAL TIME LOGGING. BY DEFAULT THE LOGS WE SEND FLUSH WAY ALL LOGS STORE AND SEDN AT A TIME(BUFFRED). THIS WILL MAKE SURE ALL LOGS ARE SENT IN REAL TIME.
 #COPY requirements.txt .
 
+#chown means CHangeOWNership
+
 COPY --chown=user:user requirements.txt .
 # update pip
 RUN pip install --upgrade pip
@@ -24,8 +26,10 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # copy the app files to the container
 
-COPY --chown=user:user . .
+COPY --chown=user:user . . 
 #COPY . .
+
+RUN chown -R user:user chromadb
 
 # EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
 EXPOSE 7860
