@@ -8,6 +8,8 @@ services:
       - chromadb_server
     networks:
       - rag_network
+    environment:
+      - chroma_host=chromadb_server
 
 
   chromadb_server:
@@ -15,7 +17,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - chromadb_data:
+      - chromadb_data:/chroma/chroma
     networks:
       - rag_network
 
