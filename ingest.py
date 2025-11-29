@@ -22,8 +22,9 @@ model = 'all-MiniLm-L6-v2'
 
 embedding_model = HuggingFaceEmbeddings(model_name = model,model_kwargs = {'device': 'mps' if torch.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'},
     encode_kwargs = {'normalize_embeddings': False})
-
-ChromaDB = Chroma(persist_directory='chromadb/',embedding_function= embedding_model)
+# creating the server instance for docker deployments
+client_i = Chroma.HTTPClient(host='chroma',port=8000)# 8000 is default port for chromadb server.
+ChromaDB = Chroma(client=client_i,collection_name='chromadb',embedding_function= embedding_model)
 
 class ingestion:
     def __init__(self,model_name = model,embedding_model = embedding_model,VectorDB = ChromaDB):
@@ -283,7 +284,6 @@ print(ingestor.data_quality_report('https://www.geeksforgeeks.org/nlp/advanced-n
 #testing 3
 # creating the ingestion object
 ingestor = ingestion()
-"""
 # loading the data
 book_data = ingestor.data_load('documents/books')
 
@@ -305,7 +305,7 @@ embedding_interview_data = ingestor.adding_data_to_chromadb(chunked_interview_da
 embedding_article_data = ingestor.adding_data_to_chromadb(chunked_article_data)
 
 # checking data quality report
-print(ingestion.data_quality_report('documents/books','book'))"""
+#print(ingestion.data_quality_report('documents/books','book'))
 
 #testing 4 retriveval quality test.
 
