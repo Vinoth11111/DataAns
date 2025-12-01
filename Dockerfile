@@ -31,7 +31,7 @@ COPY --chown=user:user . .
 # create a makeout path for seeing the files in chromadb
 # below line is added to provide access to non root user in docker container.
 # mkdir makes make directory -p means make PARENT directories as needed.
-#RUN mkdir -p /app/chromadb
+RUN mkdir -p /app/chromadb
 # provide access to the non root user in docker container.
 
 USER root
