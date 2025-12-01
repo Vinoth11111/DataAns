@@ -1,3 +1,9 @@
+echo 'starting the chromadb server'
+chromadb run --host chromadb_server --port 8000 &
+
+echo "waiting for chromadb server to start"
+sleep 10
+
 echo "running the ingestion file"
 python3 ingest.py
 
