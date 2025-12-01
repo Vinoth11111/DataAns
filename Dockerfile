@@ -46,4 +46,4 @@ USER user
 EXPOSE 7860
 #EXPOSE 8501
 
-CMD ["streamlit","run","app.py","--server.port=7860","--server.address=0.0.0.0"]
+CMD ["bash", "start.sh"]
