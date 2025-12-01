@@ -8,9 +8,11 @@ from langchain_core.messages import HumanMessage,AIMessage
 import torch
 from langchain_groq import ChatGroq
 from chromadb import chromadb
+from langchain_classic.vectorstores import Chroma
 import logging 
 from dotenv import load_dotenv 
 import os
+import time
 
 
 logger = logging.getLogger(__name__)
@@ -27,6 +29,7 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
 host_db = os.environ.get('chromadb_server','localhost')
 client_i = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
+time.sleep(5)  # wait for 5 seconds before proceeding
 vectorDB = Chroma(client=client_i,embedding_function= model)
 
 
