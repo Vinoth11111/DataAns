@@ -1,25 +1,46 @@
-version: '3.9'
+version: "3.9"
 services:
+  chromadb_server:
+    image: chromadb/chroma:latest
+    ports:
+      - 8000:8000
+    volumes:
+      - chromadb_data:/chroma/chroma
+    networks:
+      - rag_network
+    #healthcheck:
+    #  test: ["CMD","curl",'-f', "http://localhost:8000/api/v1/heartbeat"]
+    #  interval: 1m30s
+    #  timeout: 30s
+    #  retries: 5
+
+  ingestion:
+    build: . # Path to your Dockerfile
+    command: python3 ingest.py
+    volumes:
+      - .:/app
+    depends_on:
+      - chromadb_server
+      #  condition: service_healthy
+    networks:
+      - rag_network
+    restart: 'no'
+    environment:
+      - chromadb_server=chromadb_server
   web:
     build: . # Path to your Dockerfile
     ports:
       - "7860:7860"
     depends_on:
       - chromadb_server
+      #  condition: service_healthy
     networks:
       - rag_network
     environment:
+      - chromadb_server=chromadb_server
       - chroma_host=chromadb_server
 
 
-  chromadb_server:
-    image: chromadb/chroma
-    ports:
-      - "8000:8000"
-    volumes:
-      - chromadb_data:/chroma/chroma
-    networks:
-      - rag_network
 
 # persistent volumes(absolute path have to be given)
 volumes:

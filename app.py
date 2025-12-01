@@ -1,5 +1,5 @@
 import streamlit as st
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_classic.chains import RetrievalQA,create_retrieval_chain,create_history_aware_retriever
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
@@ -7,7 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.messages import HumanMessage,AIMessage
 import torch
 from langchain_groq import ChatGroq
-import chromadb
+from chromadb import chromadb
 import logging 
 from dotenv import load_dotenv 
 import os
@@ -25,8 +25,9 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 #for local run
 #vectorDB = chromadb.(persist_directory='chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
-client_i = chromadb.HttpClient(host='chroma',port=8000)# 8000 is default port for chromadb server.
-vectorDB = Chroma(client=client_i,collection_name='chromadb',embedding_function= model)
+host_db = os.environ.get('chromadb_server','localhost')
+client_i = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
+vectorDB = Chroma(client=client_i,embedding_function= model)
 
 
 

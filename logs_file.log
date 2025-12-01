@@ -242,3 +242,81 @@ AttributeError: 'list' object has no attribute 'page_content'
 2025-11-21 17:47:43,819 - INFO - Csv Data loaded successfully.
 2025-11-21 17:47:43,820 - INFO - Chunking Interview/Web Data.... with 20 documents
 2025-11-21 17:47:43,830 - INFO - Adding Data to the ChromaDB instance...
+2025-11-29 12:17:43,448 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-29 13:33:48,286 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-29 13:48:27,569 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-29 13:55:52,504 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-29 13:56:07,993 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 14:05:33,275 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-30 14:05:42,816 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 15:32:32,715 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-30 15:32:42,809 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 16:12:18,819 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-30 16:12:28,243 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 16:33:04,829 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-30 16:34:02,509 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 16:34:02,585 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-11-30 16:34:02,586 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 16:34:02,593 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-11-30 16:34:02,595 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-11-30 16:34:02,610 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-11-30 16:34:04,615 - INFO - Successfully connected to ChromaDB server at chromadb_server:8000)
+2025-11-30 16:34:04,617 - INFO - Loading Book Data from path: documents/books
+2025-11-30 16:34:05,526 - INFO - Book Data loaded successfully.
+2025-11-30 16:34:05,526 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-30 16:34:09,587 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-30 16:34:09,587 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-30 16:34:09,587 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-30 16:34:11,510 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-30 16:34:15,701 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:34:15,701 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:34:15,701 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:34:15,701 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:34:15,701 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:34:17,082 - INFO - Research Data loaded successfully.
+2025-11-30 16:34:17,082 - INFO - Loading Book Data from path: documents/interview
+2025-11-30 16:34:17,603 - INFO - Book Data loaded successfully.
+2025-11-30 16:34:17,603 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-30 16:35:57,434 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-11-30 16:36:05,462 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 16:36:05,530 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-11-30 16:36:05,530 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-11-30 16:36:05,538 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-11-30 16:36:05,539 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-11-30 16:36:05,548 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-11-30 16:36:07,553 - INFO - Successfully connected to ChromaDB server at chromadb_server:8000)
+2025-11-30 16:36:07,555 - INFO - Loading Book Data from path: documents/books
+2025-11-30 16:36:08,414 - INFO - Book Data loaded successfully.
+2025-11-30 16:36:08,415 - INFO - Loading Interview Data from path: documents/research paper
+2025-11-30 16:36:12,413 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-11-30 16:36:12,413 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-11-30 16:36:12,414 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-11-30 16:36:14,321 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-11-30 16:36:18,536 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:36:18,536 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:36:18,536 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:36:18,537 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:36:18,537 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-11-30 16:36:19,910 - INFO - Research Data loaded successfully.
+2025-11-30 16:36:19,910 - INFO - Loading Book Data from path: documents/interview
+2025-11-30 16:36:20,426 - INFO - Book Data loaded successfully.
+2025-11-30 16:36:20,426 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-11-30 16:36:20,426 - INFO - Article Data loaded successfully.
+2025-11-30 16:36:21,911 - INFO - Chunking Book Data...
+2025-11-30 16:36:21,969 - INFO - Chunking Book Data...
+2025-11-30 16:36:22,029 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-11-30 16:36:22,060 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-11-30 16:36:22,064 - INFO - Adding Data to the ChromaDB instance...
+2025-11-30 16:38:08,549 - INFO - HTTP Request: GET http://chromadb_server:8000/api/v2/pre-flight-checks "HTTP/1.1 200 OK"
+2025-11-30 16:38:11,355 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections/0447becb-6a68-48a4-8834-3fcf020076b4/upsert "HTTP/1.1 200 OK"
+2025-11-30 16:38:11,371 - INFO - Adding Data to the ChromaDB instance...
+2025-11-30 16:40:19,386 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections/0447becb-6a68-48a4-8834-3fcf020076b4/upsert "HTTP/1.1 200 OK"
+2025-11-30 16:40:19,522 - INFO - Adding Data to the ChromaDB instance...
+2025-11-30 16:40:48,977 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections/0447becb-6a68-48a4-8834-3fcf020076b4/upsert "HTTP/1.1 200 OK"
+2025-11-30 16:40:48,986 - INFO - Adding Data to the ChromaDB instance...
+2025-11-30 16:40:51,206 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections/0447becb-6a68-48a4-8834-3fcf020076b4/upsert "HTTP/1.1 200 OK"
+2025-11-30 16:40:51,207 - INFO - Loading Other Data from path: evaluate_data.csv
+2025-11-30 16:40:51,208 - INFO - Csv Data loaded successfully.
+2025-11-30 16:40:51,213 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-11-30 16:40:51,214 - INFO - Adding Data to the ChromaDB instance...
+2025-11-30 16:40:51,576 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections/0447becb-6a68-48a4-8834-3fcf020076b4/upsert "HTTP/1.1 200 OK"

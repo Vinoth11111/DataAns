@@ -3,11 +3,13 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 import bs4
+import time
 import torch
 import numpy as np
 from tqdm import tqdm
+import chromadb
 import logging
-
+import os
 # setting up logging configuration
 logging.basicConfig(level=logging.INFO, # setting log level to INFO
                     format='%(asctime)s - %(levelname)s - %(message)s', # format of the log message
@@ -23,8 +25,21 @@ model = 'all-MiniLm-L6-v2'
 embedding_model = HuggingFaceEmbeddings(model_name = model,model_kwargs = {'device': 'mps' if torch.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'},
     encode_kwargs = {'normalize_embeddings': False})
 # creating the server instance for docker deployments
-client_i = Chroma.HTTPClient(host='chroma',port=8000)# 8000 is default port for chromadb server.
-ChromaDB = Chroma(client=client_i,collection_name='chromadb',embedding_function= embedding_model)
+# initialize the host server 
+host_db = os.environ.get('chromadb_server','localhost')
+retries_count = 3
+while retries_count > 0:
+    try:
+        client_i = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
+        ChromaDB = Chroma(client=client_i,embedding_function= embedding_model)
+        time.sleep(2)  # wait for 2 seconds before proceeding
+        logger.info(f"Successfully connected to ChromaDB server at {host_db}:8000)")
+        break
+    except Exception as e:
+        logger.error(f"Failed to connect to ChromaDB server at {host_db}:8000. Retrying...", exc_info=True)
+        retries_count -= 1
+        if retries_count == 0:
+            raise e
 
 class ingestion:
     def __init__(self,model_name = model,embedding_model = embedding_model,VectorDB = ChromaDB):
