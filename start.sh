@@ -1,3 +1,6 @@
+echo "Cleaning up database files..."
+rm -rf /app/chromadb/*
+
 echo 'starting the chromadb server'
 chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &
 

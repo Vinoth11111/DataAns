@@ -7,8 +7,7 @@ from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.messages import HumanMessage,AIMessage
 import torch
 from langchain_groq import ChatGroq
-from chromadb import chromadb
-from langchain_classic.vectorstores import Chroma
+import chromadb
 import logging 
 from dotenv import load_dotenv 
 import os
