@@ -36,7 +36,7 @@ while retries_count > 0:
         logger.info(f"Successfully connected to ChromaDB server at {host_db}:8000)")
         break
     except Exception as e:
-        logger.error(f"Failed to connect to ChromaDB server at {host_db}:8000. Retrying...", exc_info=True)
+        logger.error(f"Failed to connect to ChromaDB server at {host_db}:8000. Retrying...{retries_count} times", exc_info=True)
         retries_count -= 1
         if retries_count == 0:
             raise e
