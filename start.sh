@@ -1,5 +1,5 @@
 echo 'starting the chromadb server'
-chroma run --path /app/chromadb --host localhost --port 8000 &
+chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &
 
 echo "waiting for chromadb server to start"
 sleep 10
