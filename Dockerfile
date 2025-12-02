@@ -33,13 +33,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 # copy the app files to the container
 
 COPY --chown=user:user . . 
+USER root
 
 RUN dos2unix start.sh && chmod +x start.sh
 #COPY . .
 # create a makeout path for seeing the files in chromadb
 # below line is added to provide access to non root user in docker container.
 # mkdir makes make directory -p means make PARENT directories as needed.
-USER root
 
 RUN mkdir -p /app/chromadb
 # provide access to the non root user in docker container.
