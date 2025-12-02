@@ -1,4 +1,4 @@
-FROM python:3.11-slim
+FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
@@ -6,7 +6,6 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     dos2unix \
-    software-properties-common \
     && rm -rf /var/lib/apt/lists/*
     
 # create a non root user
