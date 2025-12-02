@@ -27,11 +27,26 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 #vectorDB = chromadb.(persist_directory='chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
 host_db = os.environ.get('chromadb_server','localhost')
-client_i = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
-time.sleep(5)  # wait for 5 seconds before proceeding
+tries = 30
+client_i = None
+
+for i in range(tries):
+    try:
+        temp_client = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
+        temp_client.heartbeat()
+        logger.info("Connected to ChromaDB server successfully.")
+        client_i = temp_client
+        break
+    except Exception as e:
+        logger.warning(f"Attempt {i+1} of {tries} failed: {e}")
+        time.sleep(2)
+
+if client_i is None:
+    logger.error("Failed to connect to ChromaDB server after multiple attempts.")
+    st.error("Unable to connect to the ChromaDB server. Please try again later.")
+    st.stop()
+client_i = chromadb.HttpClient(host=host_db,port=8000)
 vectorDB = Chroma(collection_name='data_science_data',client=client_i,embedding_function= model)
-
-
 
 
 llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.6, max_tokens=1000) #context_window for lamma is 4096.
