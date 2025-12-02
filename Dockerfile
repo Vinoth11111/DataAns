@@ -2,11 +2,11 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    dos2unix \
-    && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y \
+ #   build-essential \
+  #  curl \
+   # dos2unix \
+    #&& rm -rf /var/lib/apt/lists/*
     
 # create a non root user
 RUN useradd -m -u 1000 user
@@ -35,7 +35,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY --chown=user:user . . 
 USER root
 
-RUN dos2unix start.sh && chmod +x start.sh
+#RUN dos2unix start.sh && chmod +x start.sh
 #COPY . .
 # create a makeout path for seeing the files in chromadb
 # below line is added to provide access to non root user in docker container.
