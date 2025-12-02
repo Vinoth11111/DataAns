@@ -57,5 +57,5 @@ EXPOSE 7860
 
 # run the app
 #/bin/bash run bash shell and -c means run the command inside the quotes.
-CMD ["/bin/bash","-c","chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 & sleep 10 && python3 ingest.py & streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false"]
+CMD ["/bin/bash","-c","chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 & python3 ingest.py & streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false"]
 
