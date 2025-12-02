@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the persistent path for ChromaDB
-DB_PATH="/data/chromadb"
+DB_PATH="/app/chromadb"
 
 echo 'Starting the ChromaDB server...'
 # *** IMPORTANT: Use the /data path for persistence ***
