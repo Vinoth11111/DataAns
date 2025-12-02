@@ -29,7 +29,7 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 host_db = os.environ.get('chromadb_server','localhost')
 client_i = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
 time.sleep(5)  # wait for 5 seconds before proceeding
-vectorDB = Chroma(client=client_i,embedding_function= model)
+vectorDB = Chroma(collection_name='data_science_data',client=client_i,embedding_function= model)
 
 
 

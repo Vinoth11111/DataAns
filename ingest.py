@@ -31,7 +31,7 @@ retries_count = 3
 while retries_count > 0:
     try:
         client_i = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
-        ChromaDB = Chroma(client=client_i,embedding_function= embedding_model)
+        ChromaDB = Chroma(collection_name='data_science_data',client=client_i,embedding_function= embedding_model)
         time.sleep(5)  # wait for 5 seconds before proceeding
         logger.info(f"Successfully connected to ChromaDB server at {host_db}:8000)")
         break

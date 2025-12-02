@@ -33,6 +33,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # copy the app files to the container
 
 COPY --chown=user:user . . 
+
+RUN dos2unix start.sh && chmod +x start.sh
 #COPY . .
 # create a makeout path for seeing the files in chromadb
 # below line is added to provide access to non root user in docker container.
@@ -54,5 +56,5 @@ EXPOSE 7860
 #EXPOSE 8501
 
 # run the app
-CMD ["bash","start.sh", "streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false", "--server.enableWebsocketCompression=false"]
+CMD ["bash","start.sh"]
 
