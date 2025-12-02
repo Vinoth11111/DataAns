@@ -4,16 +4,18 @@ echo 'Starting the ChromaDB server...'
 # *** IMPORTANT: Use the /data path for persistence ***
 chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &
 
-# CHECK FOR PERSISTENCE: Only run ingestion if the database directory is empty
+echo "Waiting for ChromaDB server to start..."
+# Note: A simple sleep is often okay for simple deployments, but brittle.
+sleep 10
+
+# Run the ingestion script in the background
 echo "Running ingestion..."
     # The 'rm -rf' line is removed to allow persistence.
 python3 ingest.py &
 
 
 
-echo "Waiting for ChromaDB server to start..."
-# Note: A simple sleep is often okay for simple deployments, but brittle.
-sleep 10
+
 
 echo "Starting the Streamlit app..."
 
