@@ -45,7 +45,6 @@ if client_i is None:
     logger.error("Failed to connect to ChromaDB server after multiple attempts.")
     st.error("Unable to connect to the ChromaDB server. Please try again later.")
     st.stop()
-client_i = chromadb.HttpClient(host=host_db,port=8000)
 vectorDB = Chroma(collection_name='data_science_data',client=client_i,embedding_function= model)
 
 
