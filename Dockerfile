@@ -2,6 +2,13 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    dos2unix \
+    software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
+    
 # create a non root user
 RUN useradd -m -u 1000 user
 
@@ -47,4 +54,6 @@ USER user
 EXPOSE 7860
 #EXPOSE 8501
 
-CMD ["bash", "start.sh"]
+# run the app
+CMD ["bash","start.sh", "streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableXsrfProtection=false", "--server.enableWebsocketCompression=false"]
+
