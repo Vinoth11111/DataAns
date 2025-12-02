@@ -56,5 +56,5 @@ EXPOSE 7860
 #EXPOSE 8501
 
 # run the app
-CMD ["bash","start.sh"]
+CMD ["chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 & sleep 10 && python3 ingest.py & streamlit run app.py --server.port 7860 --server.address --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false"]
 

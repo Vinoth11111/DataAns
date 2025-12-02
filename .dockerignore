@@ -6,4 +6,5 @@ venv/
 *.pyc
 .DS_Store
 chromadb/**
+chromadb/*
 chromadb/
