@@ -27,27 +27,35 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 #vectorDB = chromadb.(persist_directory='chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
 host_db = os.environ.get('chromadb_server','localhost')
-tries = 30
 client_i = None
 
-for i in range(tries):
+# UI Placeholder to let the user know what's happening
+status_container = st.empty()
+status_container.info("🚀 Starting up Database... Please wait.")
+
+# 1. Connection Loop (Silent background retry)
+for i in range(30):
     try:
-        temp_client = chromadb.HttpClient(host=host_db,port=8000)# 8000 is default port for chromadb server.
+        temp_client = chromadb.HttpClient(host=host_db, port=8000)
         temp_client.heartbeat()
-        logger.info("Connected to ChromaDB server successfully.")
         client_i = temp_client
+        logger.info("Connected to ChromaDB server successfully.")
+        status_container.success("✅ Database Connected!")
+        time.sleep(1) # Show success message briefly
+        status_container.empty() # Clear message
         break
-    except Exception as e:
-        logger.warning(f"Attempt {i+1} of {tries} failed: {e}")
-        time.sleep(2)
+    except Exception:
+        # Don't crash, just wait a bit
+        time.sleep(1)
 
+# 2. Critical Check
 if client_i is None:
-    logger.error("Failed to connect to ChromaDB server after multiple attempts.")
-    st.error("Unable to connect to the ChromaDB server. Please try again later.")
+    st.error("⚠️ Database is warming up. Please refresh the page in a few seconds.")
+    # Do NOT use st.stop() here immediately if you want the UI to load at least partial elements
+    # But for RAG, we kind of need it.
     st.stop()
-    
-vectorDB = Chroma(collection_name='data_science_data',client=client_i,embedding_function= model)
 
+vectorDB = Chroma(collection_name='data_science_data', client=client_i, embedding_function=model)
 
 llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.6, max_tokens=1000) #context_window for lamma is 4096.
 
