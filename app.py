@@ -29,38 +29,17 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 #for local run
 #vectorDB = chromadb.(persist_directory='chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
-host_db = os.environ.get('chromadb_server','127.0.0.1')
-client_i = None
+import chromadb
 
-# UI Placeholder to let the user know what's happening
-status_container = st.empty()
-status_container.info("🚀 Starting up Database... Please wait.")
-
-# 1. Connection Loop (Silent background retry)
-for i in range(30):
-    try:
-        temp_client = chromadb.HttpClient(host=host_db, port=8000)
-        temp_client.heartbeat()
-        client_i = temp_client
-        logger.info("Connected to ChromaDB server successfully.")
-        status_container.success("✅ Database Connected!")
-        time.sleep(1) # Show success message briefly
-        status_container.empty() # Clear message
-        break
-    except Exception:
-        # Don't crash, just wait a bit
-        time.sleep(1)
-
-# 2. Critical Check
-if client_i is None:
-    st.error("⚠️ Database is warming up. Please refresh the page in a few seconds.")
-    # Do NOT use st.stop() here immediately if you want the UI to load at least partial elements
-    # But for RAG, we kind of need it.
-    st.stop()
+client_i = chromadb.CloudClient(
+  api_key=os.getenv('CHROMA_API_KEY'),
+  tenant='0be607d1-3f76-4e46-b9b5-154edc028e47',
+  database='chromaDB'
+)
 
 vectorDB = Chroma(client=client_i, embedding_function=model)
 
-llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.6, max_tokens=1000) #context_window for lamma is 4096.
+llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.2, max_tokens=1000) #context_window for lamma is 4096.
 
 
 with st.chat_message('assistant'):
@@ -111,10 +90,21 @@ prompt = """ you are a **Data Scientist expert**. you are helping the user, who 
 - **DO NOT** mention the XML tag names (like <SOURCE_CONTEXT> or <CHAT_HISTORY>) in your final response. Refer to them naturally as "the provided documents" or "our conversation".
 - **DO NOT** start your response with meta-fillers like "Based on the context...". Go straight to the answer.
 
-## INPUT DATA: ##
+### CRITICAL RULES (MUST FOLLOW):
+1. **NO OUTSIDE KNOWLEDGE:** You must strictly rely **only** on the information provided in the <SOURCE_CONTEXT> below. Do not use your own training data, general knowledge, or assumptions.
+2. **CITATION REQUIRED:** Every part of your answer must be supported by the context. If you state a fact, ensure it exists in the documents.
+3. **NO GUESSING:** If the provided documents do not contain the specific answer to the question, you must state: *"I cannot find the answer to this question in the provided Data Science documents."* Do not try to be helpful by making up an answer.
+4. **EXPERT TONE:** Provide detailed, technical explanations suitable for a Junior Data Scientist, but only if the details are present in the context.
+
+### INPUT DATA:
 <SOURCE_CONTEXT>
 {context}
 </SOURCE_CONTEXT>
+
+### USER QUESTION:
+{input}
+
+### YOUR ANSWER:
                                                                                                                                                                                                                                               
 ## ZERO SHOT EXAMPLES: ##
 input: 'Importance of Data Normalization?' output: Data Normalization is crucial in Supervised Learning... (Detailed explanation follows)
