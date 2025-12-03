@@ -17,8 +17,11 @@ import time
 logger = logging.getLogger(__name__)
 
 load_dotenv()
-model = HuggingFaceEmbeddings(model_name = 'all-MiniLM-L6-v2',model_kwargs = {'device': 'mps' if torch.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'},
+@st.cache_resource
+def load_embedding_model():
+    return HuggingFaceEmbeddings(model_name = 'all-MiniLM-L6-v2',model_kwargs = {'device': 'mps' if torch.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'},
                               encode_kwargs = {'normalize_embeddings': False})
+model = load_embedding_model()
 st.title(':red[DataAns] :grey[-] :blue[Your] :green[Data] :orange[Science] :violet[Assistant]')
 st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding and Expert Guidance!**')
 
@@ -55,7 +58,7 @@ if client_i is None:
     # But for RAG, we kind of need it.
     st.stop()
 
-vectorDB = Chroma(collection_name='data_science_data', client=client_i, embedding_function=model)
+vectorDB = Chroma(client=client_i, embedding_function=model)
 
 llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.6, max_tokens=1000) #context_window for lamma is 4096.
 
