@@ -64,7 +64,9 @@ EXPOSE 7860
 #streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false
 #EOF
 
-RUN printf "!#/bin/bash\n \
+RUN printf "#!/bin/bash\n \
+echo 'Cleaning up old database...'\n \
+rm -rf /app/chromadb/*\n \
 echo 'starting the chromadb server'\n \
 chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &\n \
 echo 'wait for 5 seconds to let chromadb start'\n \
