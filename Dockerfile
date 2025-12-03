@@ -2,85 +2,74 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
+# 1. Install System Tools
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
     && rm -rf /var/lib/apt/lists/*
     
-# create a non root user
+# Create user
 RUN useradd -m -u 1000 user
-
-#swithch to non root user
 USER user
 
-# create vertual environment
+# Env variables
 ENV HOME=/home/user \
     PATH=/home/user/.local/bin:$PATH \
     PYTHONUNBUFFERED=1 
-# PYTHONUNBUFFERED=1 IS USED FOR REAL TIME LOGGING. BY DEFAULT THE LOGS WE SEND FLUSH WAY ALL LOGS STORE AND SEDN AT A TIME(BUFFRED). THIS WILL MAKE SURE ALL LOGS ARE SENT IN REAL TIME.
-#COPY requirements.txt .
 
-#chown means CHangeOWNership
-
+# Install Python requirements
 COPY --chown=user:user requirements.txt .
-# update pip
 RUN pip install --upgrade pip
-
-# install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# copy the app files to the container
-
+# Copy App
 COPY --chown=user:user . . 
+
+# 2. Permissions Setup
 USER root
-
-#RUN dos2unix start.sh && chmod +x start.sh
-#COPY . .
-# create a makeout path for seeing the files in chromadb
-# below line is added to provide access to non root user in docker container.
-# mkdir makes make directory -p means make PARENT directories as needed.
-
 RUN mkdir -p /app/db
-# provide access to the non root user in docker container.
-
-
 RUN chown -R user:user /app/db
-
-# changemode 777 - read write execute for all users
 RUN chmod -R 777 /app/db
-
-# EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
-EXPOSE 7860
-#EXPOSE 8501
-
-#RUN <<EOF cat > /app/start.sh
-#echo 'starting the chromadb server'
-#chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &
-#echo 'wait for 5 seconds to let chromadb start'
-#sleep 5 &&
-#echo 'starting the data ingestion'
-#python3 ingest.py &
-#echo 'starting the streamlit app'
-#streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false
-#EOF
-
-RUN printf "#!/bin/bash\n \
-echo 'Cleaning up old database...'\n \
-rm -rf /app/chromadb/*\n \
-echo 'starting the chromadb server'\n \
-chroma run --path /app/db --host 0.0.0.0 --port 8000 &\n \
-echo 'wait for 5 seconds to let chromadb start'\n \
-sleep 5 && \n \
-echo 'starting the data ingestion'\n \
-(sleep 20 && python3 ingest.py) & \n \
-echo 'starting the streamlit app'\n \
-streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false" > start.sh
-
-RUN chmod +x ./start.sh
-
 USER user
 
-CMD [ "bash", "./start.sh" ]
-# run the app
-#/bin/bash run bash shell and -c means run the command inside the quotes.
-#CMD ["/bin/bash","-c","chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 & python3 ingest.py & streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false"]
+EXPOSE 7860
+
+# 3. CREATE PYTHON BOOT SCRIPT (The Robust Fix)
+# We use Python's subprocess to guarantee Streamlit starts INSTANTLY
+# while Ingestion runs quietly in the background.
+RUN printf "import subprocess\n\
+import time\n\
+import os\n\
+import threading\n\
+\n\
+def run_ingestion():\n\
+    print('⏳ Ingestion delayed for 10 seconds...')\n\
+    time.sleep(10)\n\
+    print('▶️ Starting Ingestion in background...')\n\
+    subprocess.run(['python3', 'ingest.py'])\n\
+\n\
+print('🧹 Cleaning Database...')\n\
+os.system('rm -rf /app/db/*')\n\
+\n\
+print('💽 Starting db...')\n\
+chroma_process = subprocess.Popen(['chroma', 'run', '--path', '/app/db', '--host', '0.0.0.0', '--port', '8000'])\n\
+\n\
+print('🚀 Starting Streamlit...')\n\
+# Start Streamlit immediately so Hugging Face sees the port open\n\
+streamlit_process = subprocess.Popen([\n\
+    'streamlit', 'run', 'app.py',\n\
+    '--server.port=7860',\n\
+    '--server.address=0.0.0.0',\n\
+    '--server.enableCORS=false',\n\
+    '--server.enableXsrfProtection=false',\n\
+    '--server.enableWebsocketCompression=false'\n\
+])\n\
+\n\
+# Start ingestion in a separate thread so it doesn't block Streamlit\n\
+threading.Thread(target=run_ingestion).start()\n\
+\n\
+# Keep the container running as long as Streamlit is alive\n\
+streamlit_process.wait()\n" > boot.py
+
+# Run the Python Boot Script
+CMD ["python3", "boot.py"]
