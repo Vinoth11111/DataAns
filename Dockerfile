@@ -30,8 +30,6 @@ USER root
 RUN mkdir -p /app/db
 RUN chown -R user:user /app/db
 RUN chmod -R 777 /app/db
-USER user
-
 EXPOSE 7860
 
 # 3. CREATE PYTHON BOOT SCRIPT (The Robust Fix)
@@ -70,6 +68,9 @@ threading.Thread(target=run_ingestion).start()\n\
 \n\
 # Keep the container running as long as Streamlit is alive\n\
 streamlit_process.wait()\n" > boot.py
+
+USER user
+
 
 # Run the Python Boot Script
 CMD ["python3", "boot.py"]
