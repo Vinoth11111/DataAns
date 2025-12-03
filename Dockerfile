@@ -3,10 +3,10 @@ FROM python:3.11-slim-bookworm
 WORKDIR /app
 
 # 1. Install System Tools
-RUN apt-get update && apt-get install -y \
-    build-essential \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && apt-get install -y \
+#    build-essential \
+ #   curl \
+  #  && rm -rf /var/lib/apt/lists/*
     
 # Create user
 RUN useradd -m -u 1000 user
@@ -27,12 +27,12 @@ COPY --chown=user:user . .
 
 # 2. Permissions Setup (Root Sandwich)
 # We ensure the user owns the pre-made database folder
-USER root
+#USER root
 # We don't need to mkdir because COPY already put the folder there.
 # We just need to make sure the user owns it.
-RUN chown -R user:user /app/chromadb
-RUN chmod -R 777 /app/chromadb
-USER user
+#RUN chown -R user:user /app/chromadb
+#RUN chmod -R 777 /app/chromadb
+#USER user
 
 EXPOSE 7860
 
@@ -40,16 +40,16 @@ EXPOSE 7860
 # - Removed 'rm -rf' (So we keep the data)
 # - Removed 'ingest.py' (Data is already there)
 # - Starts Chroma and Streamlit immediately
-RUN printf "#!/bin/bash\n\
-echo 'Starting ChromaDB Server...'\n\
-chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &\n\
-echo 'Waiting 5s for DB to warm up...'\n\
-sleep 5\n\
-echo 'Starting Streamlit...'\n\
-streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false\n" > start.sh
+#RUN printf "#!/bin/bash\n\
+#echo 'Starting ChromaDB Server...'\n\
+#chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &\n\
+#echo 'Waiting 5s for DB to warm up...'\n\
+#sleep 5\n\
+#echo 'Starting Streamlit...'\n\
+#streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false\n" > start.sh
 
 # Make executable
-RUN chmod +x start.sh
+#RUN chmod +x start.sh
 
 # Run
-CMD ["bash", "./start.sh"]
+CMD ["streamlit", "run", "app.py", "--server.port=7860", "--server.address=0.0.0.0"]
