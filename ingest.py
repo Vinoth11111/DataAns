@@ -10,6 +10,7 @@ from tqdm import tqdm
 import chromadb
 import logging
 import os
+from dotenv import load_dotenv
 # setting up logging configuration
 logging.basicConfig(level=logging.INFO, # setting log level to INFO
                     format='%(asctime)s - %(levelname)s - %(message)s', # format of the log message
@@ -22,11 +23,12 @@ logger = logging.getLogger(__name__)
 # setting up chromadb instance
 model = 'all-MiniLm-L6-v2'
 
+load_dotenv()
 embedding_model = HuggingFaceEmbeddings(model_name = model,model_kwargs = {'device': 'mps' if torch.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'},
     encode_kwargs = {'normalize_embeddings': False})
 # creating the server instance for docker deployments
 # initialize the host server 
-host_db = os.environ.get('chromadb_server','127.0.0.1')
+"""host_db = os.environ.get('chromadb_server','127.0.0.1')
 retries_count = 3
 while retries_count > 0:
     try:
@@ -39,7 +41,15 @@ while retries_count > 0:
         logger.error(f"Failed to connect to ChromaDB server at {host_db}:8000. Retrying...{retries_count} times", exc_info=True)
         retries_count -= 1
         if retries_count == 0:
-            raise e
+            raise e"""
+api_key = os.getenv('CHROMA_API_KEY')
+
+client_i = chromadb.CloudClient(
+  api_key=api_key,
+  tenant='0be607d1-3f76-4e46-b9b5-154edc028e47',
+  database='chromaDB'
+)
+ChromaDB = Chroma(client=client_i,embedding_function= embedding_model)
 
 class ingestion:
     def __init__(self,model_name = model,embedding_model = embedding_model,VectorDB = ChromaDB):
