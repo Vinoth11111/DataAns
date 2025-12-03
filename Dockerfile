@@ -40,14 +40,14 @@ USER root
 # below line is added to provide access to non root user in docker container.
 # mkdir makes make directory -p means make PARENT directories as needed.
 
-RUN mkdir -p /app/chromadb
+RUN mkdir -p /app/db
 # provide access to the non root user in docker container.
 
 
-RUN chown -R user:user /app/chromadb
+RUN chown -R user:user /app/db
 
 # changemode 777 - read write execute for all users
-RUN chmod -R 777 /app/chromadb
+RUN chmod -R 777 /app/db
 
 # EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
 EXPOSE 7860
@@ -68,7 +68,7 @@ RUN printf "#!/bin/bash\n \
 echo 'Cleaning up old database...'\n \
 rm -rf /app/chromadb/*\n \
 echo 'starting the chromadb server'\n \
-chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &\n \
+chroma run --path /app/db --host 0.0.0.0 --port 8000 &\n \
 echo 'wait for 5 seconds to let chromadb start'\n \
 sleep 5 && \n \
 echo 'starting the data ingestion'\n \

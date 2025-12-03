@@ -29,7 +29,7 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 #for local run
 #vectorDB = chromadb.(persist_directory='chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
-host_db = os.environ.get('chromadb_server','localhost')
+host_db = os.environ.get('chromadb_server','127.0.0.1')
 client_i = None
 
 # UI Placeholder to let the user know what's happening

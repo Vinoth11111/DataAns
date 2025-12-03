@@ -26,7 +26,7 @@ embedding_model = HuggingFaceEmbeddings(model_name = model,model_kwargs = {'devi
     encode_kwargs = {'normalize_embeddings': False})
 # creating the server instance for docker deployments
 # initialize the host server 
-host_db = os.environ.get('chromadb_server','localhost')
+host_db = os.environ.get('chromadb_server','127.0.0.1')
 retries_count = 3
 while retries_count > 0:
     try:
