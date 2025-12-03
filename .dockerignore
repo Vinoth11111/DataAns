@@ -8,3 +8,6 @@ venv/
 chromadb/**
 chromadb/*
 chromadb/
+documents/**
+documents/*
+documents/

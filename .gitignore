@@ -18,6 +18,7 @@ sdist/
 var/
 *.egg-info/
 *.egg
+documents/
 
 # Virtual environments
 .venv/
