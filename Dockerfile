@@ -2,11 +2,10 @@ FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
-#RUN apt-get update && apt-get install -y \
- #   build-essential \
-  #  curl \
-   # dos2unix \
-    #&& rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
     
 # create a non root user
 RUN useradd -m -u 1000 user
@@ -50,12 +49,39 @@ RUN chown -R user:user /app/chromadb
 # changemode 777 - read write execute for all users
 RUN chmod -R 777 /app/chromadb
 
-USER user
 # EXPOSE THE PORT,7860 is for huggingface space streamlit apps and 8501 is for normal streamlit apps
 EXPOSE 7860
 #EXPOSE 8501
 
+#RUN <<EOF cat > /app/start.sh
+#echo 'starting the chromadb server'
+#chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &
+#echo 'wait for 5 seconds to let chromadb start'
+#sleep 5 &&
+#echo 'starting the data ingestion'
+#python3 ingest.py &
+#echo 'starting the streamlit app'
+#streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false
+#EOF
+
+RUN printf "!#/bin/bash\n \
+echo 'starting the chromadb server'\n \
+chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 &\n \
+echo 'wait for 5 seconds to let chromadb start'\n \
+sleep 5 && \n \
+echo 'starting the data ingestion'\n \
+(sleep 20 && python3 ingest.py) & \n \
+echo 'starting the streamlit app'\n \
+streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false" > start.sh
+
+RUN chmod +x ./start.sh
+
+USER user
+
+CMD [ "bash", "./start.sh" ]
 # run the app
 #/bin/bash run bash shell and -c means run the command inside the quotes.
-CMD ["/bin/bash","-c","chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 & python3 ingest.py & streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false"]
+#CMD ["/bin/bash","-c","chroma run --path /app/chromadb --host 0.0.0.0 --port 8000 & python3 ingest.py & streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableXsrfProtection=false --server.enableWebsocketCompression=false"]
+
+
 
