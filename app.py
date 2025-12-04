@@ -5,20 +5,21 @@ from langchain_classic.chains import RetrievalQA,create_retrieval_chain,create_h
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.messages import HumanMessage,AIMessage
-import torch
 from langchain_groq import ChatGroq
 import chromadb
 import logging 
 from dotenv import load_dotenv 
 import os
-
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 logger = logging.getLogger(__name__)
 
 load_dotenv()
 @st.cache_resource
 def load_embedding_model():
-    return HuggingFaceEmbeddings(model_name = 'all-MiniLM-L6-v2',model_kwargs = {'device': 'mps' if torch.mps.is_available() else 'cuda' if torch.cuda.is_available() else 'cpu'},
+    return HuggingFaceEmbeddings(model_name = 'all-MiniLM-L6-v2',model_kwargs = {'device':'cpu'},
                               encode_kwargs = {'normalize_embeddings': False})
 model = load_embedding_model()
 st.title(':red[DataAns] :grey[-] :blue[Your] :green[Data] :orange[Science] :violet[Assistant]')
