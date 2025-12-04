@@ -1,6 +1,5 @@
 # i have to use similarity_search for manual retriving rather than as_retriever()
 import time
-from langchain_chroma import Chroma
 from langchain_groq import ChatGroq
 from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
@@ -9,6 +8,7 @@ from langchain_classic.chains import RetrievalQA, create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_huggingface import HuggingFaceEmbeddings
 from torch import torch
+import chromadb
 from bert_score import BERTScorer
 from nltk.stem import WordNetLemmatizer
 from nltk.corpus import stopwords
@@ -48,7 +48,14 @@ model = HuggingFaceEmbeddings(model = 'all-MiniLM-L6-v2', model_kwargs = {'devic
                               encode_kwargs = {'normalize_embeddings': False})
 
 llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.6, max_tokens=1000)
-vectorDB = Chroma(persist_directory='chromadb/',embedding_function=model)
+#vectorDB = Chroma(persist_directory='chromadb/',embedding_function=model)
+api_key = os.environ.get('CHROMA_API_KEY')
+client_i = chromadb.CloudClient(
+  api_key=api_key,
+  tenant='0be607d1-3f76-4e46-b9b5-154edc028e47',
+  database='chromaDB'
+)
+vectorDB = Chroma(client=client_i, embedding_function=model)
 stop_words = set(stopwords.words('english')) 
 eval_model = ChatGroq(model='openai/gpt-oss-20b',temperature=0,api_key=os.getenv('OPENAI_API_KEY'))
 
