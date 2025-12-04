@@ -1,6 +1,7 @@
-__import__('pysqlite3')
+#for deployment
+"""__import__('pysqlite3')
 import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')"""
 
 import streamlit as st
 from langchain_chroma import Chroma
@@ -43,6 +44,8 @@ host = os.environ.get('chromadb_server','127.0.0.1')
 client_i = chromadb.HttpClient(host=host,port=8000)
 
 vectorDB = Chroma(client=client_i, embedding_function=model)
+
+#vectorDB = Chroma(persist_directory='chromadb', embedding_function=model)
 
 llm = ChatGroq(model = 'llama-3.1-8b-instant', api_key = os.getenv('GROQ_API_KEY'), temperature=0.2, max_tokens=1000) #context_window for lamma is 4096.
 
