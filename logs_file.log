@@ -320,3 +320,351 @@ AttributeError: 'list' object has no attribute 'page_content'
 2025-11-30 16:40:51,213 - INFO - Chunking Interview/Web Data.... with 20 documents
 2025-11-30 16:40:51,214 - INFO - Adding Data to the ChromaDB instance...
 2025-11-30 16:40:51,576 - INFO - HTTP Request: POST http://chromadb_server:8000/api/v2/tenants/default_tenant/databases/default_database/collections/0447becb-6a68-48a4-8834-3fcf020076b4/upsert "HTTP/1.1 200 OK"
+2025-12-02 22:11:47,114 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-02 22:11:54,953 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-02 22:11:55,076 - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-12-02 22:11:55,077 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-02 22:11:55,096 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-12-02 22:11:55,100 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-12-02 22:11:55,122 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-12-02 22:12:00,128 - INFO - Successfully connected to ChromaDB server at localhost:8000)
+2025-12-02 22:12:00,129 - INFO - Loading Book Data from path: documents/books
+2025-12-02 22:12:01,733 - INFO - Book Data loaded successfully.
+2025-12-02 22:12:01,733 - INFO - Loading Interview Data from path: documents/research paper
+2025-12-02 22:12:05,890 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-12-02 22:12:05,890 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-12-02 22:12:05,890 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-12-02 22:12:07,988 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-12-02 22:12:12,505 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-02 22:12:12,505 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-02 22:12:12,505 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-02 22:12:12,505 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-02 22:12:12,505 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-02 22:12:13,921 - INFO - Research Data loaded successfully.
+2025-12-02 22:12:13,921 - INFO - Loading Book Data from path: documents/interview
+2025-12-02 22:12:14,637 - INFO - Book Data loaded successfully.
+2025-12-02 22:12:14,637 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-12-02 22:12:14,637 - INFO - Article Data loaded successfully.
+2025-12-02 22:12:15,290 - INFO - Chunking Book Data...
+2025-12-02 22:12:15,371 - INFO - Chunking Book Data...
+2025-12-02 22:12:15,438 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-12-02 22:12:15,473 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-12-02 22:12:15,476 - INFO - Adding Data to the ChromaDB instance...
+2025-12-02 22:12:50,994 - INFO - HTTP Request: GET http://localhost:8000/api/v2/pre-flight-checks "HTTP/1.1 200 OK"
+2025-12-02 22:12:53,084 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-02 22:12:53,100 - INFO - Adding Data to the ChromaDB instance...
+2025-12-02 22:13:32,073 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-02 22:13:32,093 - INFO - Adding Data to the ChromaDB instance...
+2025-12-02 22:13:42,538 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-02 22:13:42,548 - INFO - Adding Data to the ChromaDB instance...
+2025-12-02 22:13:43,412 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-02 22:13:43,413 - INFO - Loading Other Data from path: evaluate_data.csv
+2025-12-02 22:13:43,413 - INFO - Csv Data loaded successfully.
+2025-12-02 22:13:43,416 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-12-02 22:13:43,419 - INFO - Adding Data to the ChromaDB instance...
+2025-12-02 22:13:43,649 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-03 10:37:03,737 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 10:37:12,758 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 10:37:12,888 - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-12-03 10:37:12,889 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 10:37:12,901 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-12-03 10:37:12,903 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-12-03 10:37:12,922 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-12-03 10:37:17,928 - INFO - Successfully connected to ChromaDB server at localhost:8000)
+2025-12-03 10:37:17,928 - INFO - Loading Book Data from path: documents/books
+2025-12-03 10:37:19,685 - INFO - Book Data loaded successfully.
+2025-12-03 10:37:19,685 - INFO - Loading Interview Data from path: documents/research paper
+2025-12-03 10:37:23,884 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-12-03 10:37:23,884 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-12-03 10:37:23,884 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-12-03 10:37:25,973 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-12-03 10:37:30,396 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 10:37:30,396 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 10:37:30,397 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 10:37:30,397 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 10:37:30,397 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 10:37:31,820 - INFO - Research Data loaded successfully.
+2025-12-03 10:37:31,820 - INFO - Loading Book Data from path: documents/interview
+2025-12-03 10:37:32,597 - INFO - Book Data loaded successfully.
+2025-12-03 10:37:32,597 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-12-03 10:37:32,597 - INFO - Article Data loaded successfully.
+2025-12-03 10:37:33,410 - INFO - Chunking Book Data...
+2025-12-03 10:37:33,516 - INFO - Chunking Book Data...
+2025-12-03 10:37:33,585 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-12-03 10:37:33,620 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-12-03 10:37:33,624 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 10:38:08,449 - INFO - HTTP Request: GET http://localhost:8000/api/v2/pre-flight-checks "HTTP/1.1 200 OK"
+2025-12-03 10:38:11,481 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-03 10:38:11,507 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 10:38:50,017 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-03 10:38:50,037 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 10:39:00,565 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-03 10:39:00,574 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 10:39:01,438 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-03 10:39:01,438 - INFO - Loading Other Data from path: evaluate_data.csv
+2025-12-03 10:39:01,439 - INFO - Csv Data loaded successfully.
+2025-12-03 10:39:01,440 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-12-03 10:39:01,442 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 10:39:01,880 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/264444de-54e2-487d-906d-34e5bc259487/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:26:54,323 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 11:27:03,146 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 11:27:03,234 - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-12-03 11:27:03,234 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 11:27:03,245 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-12-03 11:27:03,247 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-12-03 11:27:03,259 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-12-03 11:27:08,265 - INFO - Successfully connected to ChromaDB server at localhost:8000)
+2025-12-03 11:27:08,265 - INFO - Loading Book Data from path: documents/books
+2025-12-03 11:27:09,835 - INFO - Book Data loaded successfully.
+2025-12-03 11:27:09,835 - INFO - Loading Interview Data from path: documents/research paper
+2025-12-03 11:27:13,957 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-12-03 11:27:13,957 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-12-03 11:27:13,958 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-12-03 11:27:16,013 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-12-03 11:27:20,366 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:27:20,367 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:27:20,367 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:27:20,367 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:27:20,367 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:27:21,779 - INFO - Research Data loaded successfully.
+2025-12-03 11:27:21,779 - INFO - Loading Book Data from path: documents/interview
+2025-12-03 11:27:22,501 - INFO - Book Data loaded successfully.
+2025-12-03 11:27:22,501 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-12-03 11:27:22,501 - INFO - Article Data loaded successfully.
+2025-12-03 11:27:23,007 - INFO - Chunking Book Data...
+2025-12-03 11:27:23,090 - INFO - Chunking Book Data...
+2025-12-03 11:27:23,159 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-12-03 11:27:23,193 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-12-03 11:27:23,197 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:27:57,711 - INFO - HTTP Request: GET http://localhost:8000/api/v2/pre-flight-checks "HTTP/1.1 200 OK"
+2025-12-03 11:28:00,301 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:28:00,317 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:28:38,954 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:28:38,974 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:28:49,550 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:28:49,561 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:28:50,405 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:28:50,406 - INFO - Loading Other Data from path: evaluate_data.csv
+2025-12-03 11:28:50,406 - INFO - Csv Data loaded successfully.
+2025-12-03 11:28:50,407 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-12-03 11:28:50,409 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:28:50,609 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:34:28,652 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 11:34:37,259 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 11:34:37,341 - INFO - HTTP Request: GET http://localhost:8000/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-12-03 11:34:37,342 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 11:34:37,352 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant "HTTP/1.1 200 OK"
+2025-12-03 11:34:37,353 - INFO - HTTP Request: GET http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database "HTTP/1.1 200 OK"
+2025-12-03 11:34:37,365 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections "HTTP/1.1 200 OK"
+2025-12-03 11:34:42,371 - INFO - Successfully connected to ChromaDB server at localhost:8000)
+2025-12-03 11:34:42,371 - INFO - Loading Book Data from path: documents/books
+2025-12-03 11:34:43,944 - INFO - Book Data loaded successfully.
+2025-12-03 11:34:43,944 - INFO - Loading Interview Data from path: documents/research paper
+2025-12-03 11:34:48,045 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-12-03 11:34:48,045 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-12-03 11:34:48,046 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-12-03 11:34:50,100 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-12-03 11:34:54,456 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:34:54,456 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:34:54,456 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:34:54,456 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:34:54,456 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 11:34:55,875 - INFO - Research Data loaded successfully.
+2025-12-03 11:34:55,875 - INFO - Loading Book Data from path: documents/interview
+2025-12-03 11:34:56,594 - INFO - Book Data loaded successfully.
+2025-12-03 11:34:56,594 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-12-03 11:34:56,594 - INFO - Article Data loaded successfully.
+2025-12-03 11:34:57,172 - INFO - Chunking Book Data...
+2025-12-03 11:34:57,257 - INFO - Chunking Book Data...
+2025-12-03 11:34:57,326 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-12-03 11:34:57,361 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-12-03 11:34:57,365 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:35:31,805 - INFO - HTTP Request: GET http://localhost:8000/api/v2/pre-flight-checks "HTTP/1.1 200 OK"
+2025-12-03 11:35:34,725 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:35:34,741 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:36:13,690 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:36:13,709 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:36:24,388 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:36:24,398 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:36:25,251 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 11:36:25,251 - INFO - Loading Other Data from path: evaluate_data.csv
+2025-12-03 11:36:25,252 - INFO - Csv Data loaded successfully.
+2025-12-03 11:36:25,252 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-12-03 11:36:25,253 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 11:36:25,454 - INFO - HTTP Request: POST http://localhost:8000/api/v2/tenants/default_tenant/databases/default_database/collections/cd0ccb61-1dd6-480d-8bc4-db4f7fdde303/upsert "HTTP/1.1 200 OK"
+2025-12-03 19:51:12,349 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 19:52:14,430 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 19:52:23,311 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 19:52:24,728 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/auth/identity "HTTP/1.1 401 Unauthorized"
+2025-12-03 19:59:27,409 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 19:59:35,533 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 19:59:36,568 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/auth/identity "HTTP/1.1 401 Unauthorized"
+2025-12-03 20:02:56,627 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 20:03:05,518 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 20:03:06,568 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/auth/identity "HTTP/1.1 401 Unauthorized"
+2025-12-03 20:04:58,280 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 20:05:06,820 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 20:05:08,016 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/auth/identity "HTTP/1.1 401 Unauthorized"
+2025-12-03 20:10:42,127 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 20:20:13,255 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 20:20:21,386 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 20:20:22,758 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/auth/identity "HTTP/1.1 401 Unauthorized"
+2025-12-03 20:25:15,155 - INFO - Load pretrained SentenceTransformer: all-MiniLm-L6-v2
+2025-12-03 20:25:23,266 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 20:25:24,555 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/auth/identity "HTTP/1.1 200 OK"
+2025-12-03 20:25:24,558 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-12-03 20:25:25,760 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/tenants/0be607d1-3f76-4e46-b9b5-154edc028e47 "HTTP/1.1 200 OK"
+2025-12-03 20:25:26,169 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/tenants/0be607d1-3f76-4e46-b9b5-154edc028e47/databases/chromaDB "HTTP/1.1 200 OK"
+2025-12-03 20:25:26,649 - INFO - HTTP Request: POST https://api.trychroma.com/api/v2/tenants/0be607d1-3f76-4e46-b9b5-154edc028e47/databases/chromaDB/collections "HTTP/1.1 200 OK"
+2025-12-03 20:25:26,652 - INFO - Loading Book Data from path: documents/books
+2025-12-03 20:25:28,389 - INFO - Book Data loaded successfully.
+2025-12-03 20:25:28,389 - INFO - Loading Interview Data from path: documents/research paper
+2025-12-03 20:25:32,530 - WARNING - Ignoring wrong pointing object 11 0 (offset 0)
+2025-12-03 20:25:32,530 - WARNING - Ignoring wrong pointing object 16 0 (offset 0)
+2025-12-03 20:25:32,530 - WARNING - Ignoring wrong pointing object 94 0 (offset 0)
+2025-12-03 20:25:34,586 - WARNING - Ignoring wrong pointing object 6 0 (offset 0)
+2025-12-03 20:25:38,942 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 20:25:38,942 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 20:25:38,942 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 20:25:38,942 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 20:25:38,942 - WARNING - Impossible to decode XFormObject /arial-minus: '/arial-minus'
+2025-12-03 20:25:40,363 - INFO - Research Data loaded successfully.
+2025-12-03 20:25:40,363 - INFO - Loading Book Data from path: documents/interview
+2025-12-03 20:25:41,140 - INFO - Book Data loaded successfully.
+2025-12-03 20:25:41,140 - INFO - Loading Article Data from URL: https://www.geeksforgeeks.org/nlp/advanced-natural-language-processing-interview-question/
+2025-12-03 20:25:41,140 - INFO - Article Data loaded successfully.
+2025-12-03 20:25:41,726 - INFO - Chunking Book Data...
+2025-12-03 20:25:41,811 - INFO - Chunking Book Data...
+2025-12-03 20:25:41,880 - INFO - Chunking Interview/Web Data.... with 287 documents
+2025-12-03 20:25:41,916 - INFO - Chunking Interview/Web Data.... with 1 documents
+2025-12-03 20:25:41,920 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 20:26:17,679 - INFO - HTTP Request: GET https://api.trychroma.com/api/v2/pre-flight-checks "HTTP/1.1 200 OK"
+2025-12-03 20:26:17,681 - ERROR - Error adding data to ChromaDB: Batch size 4684 exceeds maximum batch size 1000
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Downloads/domain_rag_project/./ingest.py", line 203, in adding_data_to_chromadb
+    self.vectorDB.add_documents(documents=chunked_data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_core/vectorstores/base.py", line 257, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_chroma/vectorstores.py", line 657, in add_texts
+    raise e
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_chroma/vectorstores.py", line 644, in add_texts
+    self._collection.upsert(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        metadatas=metadatas,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ids=ids_with_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/models/Collection.py", line 458, in upsert
+    self._client._upsert(
+    ~~~~~~~~~~~~~~~~~~~~^
+        collection_id=self.id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        database=self.database,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 150, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/fastapi.py", line 646, in _upsert
+    validate_batch(batch, {"max_batch_size": self.get_max_batch_size()})
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/types.py", line 1373, in validate_batch
+    raise ValueError(
+        f"Batch size {len(batch[0])} exceeds maximum batch size {limits['max_batch_size']}"
+    )
+ValueError: Batch size 4684 exceeds maximum batch size 1000
+2025-12-03 20:26:17,726 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 20:26:53,952 - ERROR - Error adding data to ChromaDB: Batch size 5460 exceeds maximum batch size 1000
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Downloads/domain_rag_project/./ingest.py", line 203, in adding_data_to_chromadb
+    self.vectorDB.add_documents(documents=chunked_data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_core/vectorstores/base.py", line 257, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_chroma/vectorstores.py", line 657, in add_texts
+    raise e
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_chroma/vectorstores.py", line 644, in add_texts
+    self._collection.upsert(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        metadatas=metadatas,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ids=ids_with_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/models/Collection.py", line 458, in upsert
+    self._client._upsert(
+    ~~~~~~~~~~~~~~~~~~~~^
+        collection_id=self.id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        database=self.database,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 150, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/fastapi.py", line 646, in _upsert
+    validate_batch(batch, {"max_batch_size": self.get_max_batch_size()})
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/types.py", line 1373, in validate_batch
+    raise ValueError(
+        f"Batch size {len(batch[0])} exceeds maximum batch size {limits['max_batch_size']}"
+    )
+ValueError: Batch size 5460 exceeds maximum batch size 1000
+2025-12-03 20:26:53,971 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 20:27:03,318 - ERROR - Error adding data to ChromaDB: Batch size 2778 exceeds maximum batch size 1000
+Traceback (most recent call last):
+  File "/Users/vinothkumar/Downloads/domain_rag_project/./ingest.py", line 203, in adding_data_to_chromadb
+    self.vectorDB.add_documents(documents=chunked_data)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_core/vectorstores/base.py", line 257, in add_documents
+    return self.add_texts(texts, metadatas, **kwargs)
+           ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_chroma/vectorstores.py", line 657, in add_texts
+    raise e
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/langchain_chroma/vectorstores.py", line 644, in add_texts
+    self._collection.upsert(
+    ~~~~~~~~~~~~~~~~~~~~~~~^
+        metadatas=metadatas,  # type: ignore[arg-type]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+        ids=ids_with_metadata,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/models/Collection.py", line 458, in upsert
+    self._client._upsert(
+    ~~~~~~~~~~~~~~~~~~~~^
+        collection_id=self.id,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<6 lines>...
+        database=self.database,
+        ^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/telemetry/opentelemetry/__init__.py", line 150, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/fastapi.py", line 646, in _upsert
+    validate_batch(batch, {"max_batch_size": self.get_max_batch_size()})
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/vinothkumar/Desktop/domain_rag_project/.venv/lib/python3.13/site-packages/chromadb/api/types.py", line 1373, in validate_batch
+    raise ValueError(
+        f"Batch size {len(batch[0])} exceeds maximum batch size {limits['max_batch_size']}"
+    )
+ValueError: Batch size 2778 exceeds maximum batch size 1000
+2025-12-03 20:27:03,328 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 20:27:07,527 - INFO - HTTP Request: POST https://api.trychroma.com/api/v2/tenants/0be607d1-3f76-4e46-b9b5-154edc028e47/databases/chromaDB/collections/7ac82f78-beca-4e25-81b6-b1ce50622bdd/upsert "HTTP/1.1 200 OK"
+2025-12-03 20:27:07,532 - INFO - Loading Other Data from path: evaluate_data.csv
+2025-12-03 20:27:07,534 - INFO - Csv Data loaded successfully.
+2025-12-03 20:27:07,539 - INFO - Chunking Interview/Web Data.... with 20 documents
+2025-12-03 20:27:07,547 - INFO - Adding Data to the ChromaDB instance...
+2025-12-03 20:27:08,572 - INFO - HTTP Request: POST https://api.trychroma.com/api/v2/tenants/0be607d1-3f76-4e46-b9b5-154edc028e47/databases/chromaDB/collections/7ac82f78-beca-4e25-81b6-b1ce50622bdd/upsert "HTTP/1.1 200 OK"

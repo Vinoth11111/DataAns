@@ -19,6 +19,8 @@ var/
 *.egg-info/
 *.egg
 documents/
+chromadb/
+db/
 
 # Virtual environments
 .venv/
