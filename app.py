@@ -33,12 +33,14 @@ st.markdown('**Your AI-powered Data Science Companion for In-Depth Understanding
 #vectorDB = chromadb.(persist_directory='chromadb', embedding_function=model)#temp provide access to the non root user in docker container.
 # for production level vectorDB we have call the chromadb server instance, with host and port then we load the collection.
 
-api_key=os.getenv('CHROMA_API_KEY')
-client_i = chromadb.CloudClient(
-  api_key=api_key,
-  tenant='0be607d1-3f76-4e46-b9b5-154edc028e47',
-  database='chromaDB'
-)
+#api_key=os.getenv('CHROMA_API_KEY')
+#client_i = chromadb.CloudClient(
+#  api_key=api_key,
+#  tenant='0be607d1-3f76-4e46-b9b5-154edc028e47',
+#  database='chromaDB'
+#)
+host = os.environ.get('chromadb_server','127.0.0.1')
+client_i = chromadb.HttpClient(host=host,port=8000)
 
 vectorDB = Chroma(client=client_i, embedding_function=model)
 
