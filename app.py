@@ -1,7 +1,11 @@
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
-from langchain_classic.chains import RetrievalQA,create_retrieval_chain,create_history_aware_retriever
+from langchain_classic.chains import create_retrieval_chain, create_history_aware_retriever
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate,MessagesPlaceholder
 from langchain_core.messages import HumanMessage,AIMessage
@@ -10,16 +14,15 @@ import chromadb
 import logging 
 from dotenv import load_dotenv 
 import os
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+
 
 logger = logging.getLogger(__name__)
 
 load_dotenv()
 @st.cache_resource
 def load_embedding_model():
-    return HuggingFaceEmbeddings(model_name = 'all-MiniLM-L6-v2',model_kwargs = {'device':'cpu'},
+    return HuggingFaceEmbeddings(model_name = 'all-MiniLM-L6-v2',model_kwargs = {'device': 'cpu'},
                               encode_kwargs = {'normalize_embeddings': False})
 model = load_embedding_model()
 st.title(':red[DataAns] :grey[-] :blue[Your] :green[Data] :orange[Science] :violet[Assistant]')
