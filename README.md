@@ -72,6 +72,9 @@ I created a manual "Ground Truth" dataset of 20 domain-specific Q&A pairs and ra
 *Note: Full evaluation logs are available in `evaluation_results.json`.*
 
 ---
+**Deployment**
+The RAG system is successfully deployed on the huggingface space.
+check it out here: https://huggingface.co/spaces/vinothh1111/rag
 
 ## 🚀 How to Run Locally
 
