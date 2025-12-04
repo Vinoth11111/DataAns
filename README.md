@@ -27,7 +27,7 @@ This project solves that problem by implementing a **RAG (Retrieval-Augmented Ge
 
 The system follows a standard "Ingest -> Retrieve -> Generate" flow:
 
-![Architecture Diagram](./architecture_diagram.png)
+![Architecture Diagram](./RAG_Architectural_Diagram.png)
 
 1.  **Ingestion Pipeline (`ingest.py`):**
     * Loads documents (PDFs & Markdown).
