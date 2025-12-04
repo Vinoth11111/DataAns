@@ -25,10 +25,10 @@ RUN mkdir -p ./db && \
 
 RUN printf "#!/bin/bash \n \
 echo 'starting the chromadb server' \n \
-chroma run --path ./db --host 0.0.0.0 --port 8000 & \n \
+chroma run --path ./db --host 0.0.0.0 --port 8000 && \n \
 sleep 5 \n \
 echo 'starting the ingestion process' \n \
-python ingest.py \n \
+python ingest.py & \n \
 echo 'starting the main application' \n \
 streamlit run app.py --server.port=7860 --server.address=0.0.0.0 --server.enableCORS=false --server.enableWebsocketCompression=false" > start.sh
 
