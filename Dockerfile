@@ -25,7 +25,7 @@ RUN mkdir -p ./db && \
 
 RUN printf "#!/bin/bash \n \
 echo 'starting the chromadb server' \n \
-chroma run --path ./db --host 0.0.0.0 --port 8000 && \n \
+chroma run --path ./db --host 0.0.0.0 --port 8000 & \n \
 sleep 5 \n \
 echo 'starting the ingestion process' \n \
 python ingest.py & \n \
