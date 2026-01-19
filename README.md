@@ -1,4 +1,4 @@
-# 🧠 Domain-Specific RAG System (Local & Privacy-First)
+#  Domain-Specific RAG System (Local & Privacy-First)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
 ![LangChain](https://img.shields.io/badge/LangChain-Framework-green)
@@ -23,7 +23,7 @@ This project solves that problem by implementing a **RAG (Retrieval-Augmented Ge
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 The system follows a standard "Ingest -> Retrieve -> Generate" flow:
 
@@ -43,7 +43,7 @@ The system follows a standard "Ingest -> Retrieve -> Generate" flow:
 
 ---
 
-## 🛠️ Technical Stack & Decisions
+## Technical Stack & Decisions
 
 I deliberately chose a "Local-First" stack to demonstrate full control over the infrastructure rather than relying on managed APIs.
 
@@ -57,7 +57,7 @@ I deliberately chose a "Local-First" stack to demonstrate full control over the 
 
 ---
 
-## 📊 Evaluation & Performance
+##  Evaluation & Performance
 
 Unlike many RAG tutorials that just "run," this project includes a dedicated evaluation pipeline (`evaluate.py`) to quantify success.
 
@@ -76,7 +76,7 @@ I created a manual "Ground Truth" dataset of 20 domain-specific Q&A pairs and ra
 The RAG system is successfully deployed on the huggingface space.
 check it out here: https://huggingface.co/spaces/vinothh1111/rag
 
-## 🚀 How to Run Locally
+##  How to Run Locally
 
 **1. Clone the Repository**
 ```bash
