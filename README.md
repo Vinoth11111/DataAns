@@ -9,7 +9,7 @@
 
 ---
 
-## 📖 Project Overview
+##  Project Overview
 
 General-purpose LLMs (like ChatGPT) are powerful, but they lack specific knowledge of private data and can "hallucinate" facts.
 
